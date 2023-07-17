@@ -336,7 +336,6 @@ app.post('/api/endorsementIssue', async (req, res) => {
     const auth_token = parse_json_auth.authorizationToken;
 
 
-
     // Fetching policy from policyLocator
 
     const response_policy = await fetch("https://api.sandbox.socotra.com/policy/" + policyNumber, {
