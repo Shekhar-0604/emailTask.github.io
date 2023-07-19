@@ -161,7 +161,6 @@ app.post('/api/policyAccept', async (req, res) => {
 
 // endpoint for sending documents on policy issue
 
-
 app.post('/api/policyIssue', async (req, res) => {
     const { id, transactionId, timestamp, data, type, username } = req.body;
 
