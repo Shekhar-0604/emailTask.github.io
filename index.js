@@ -66,7 +66,7 @@ app.post('/api/policyAccept', async (req, res) => {
     const doc = parse_json_policy.documents[0].url;
     const documentType = parse_json_policy.documents[0].displayName;
     //const invoiceNAme = parse_json_policy.invoices[0].documents[0].displayName;
-    const invoice_doc = parse_json_policy.invoices[0].documents[0].url;
+    //const invoice_doc = parse_json_policy.invoices[0].documents[0].url;
 
 
     async function convertURLToPDF(doc) {
@@ -132,23 +132,23 @@ app.post('/api/policyAccept', async (req, res) => {
     convertURLToPDF(doc)
         .then((pdfBytes1) => {
 
-            convertURLToPDF(invoice_doc)
-                .then((pdfBytes2) => {
+            //convertURLToPDF(invoice_doc)
+            //    .then((pdfBytes2) => {
                     const attachments = [
                         {
                             filename: 'Quotation.pdf',
                             content: pdfBytes1,
-                        },
+                        }/*,
                         {
                             filename: 'Invoice.pdf',
                             content: pdfBytes2,
-                        },
+                        },*/
                     ];
                     sendEmailWithAttachment(attachments, recipientEmail);
-                })
-                .catch((error) => {
-                    console.log("Error on Sending Mail", error);
-                });
+            //    })
+            //    .catch((error) => {
+            //        console.log("Error on Sending Mail", error);
+            //    });
         })
         .catch((error) => {
             console.log("Error on Sending Mail", error);
@@ -210,7 +210,7 @@ app.post('/api/policyIssue', async (req, res) => {
 
     const documentType = parse_json_policy.documents[1].displayName;
 
-    const invoice_doc = parse_json_policy.invoices[0].documents[0].url;
+    //const invoice_doc = parse_json_policy.invoices[0].documents[0].url;
 
 
 
@@ -277,23 +277,23 @@ app.post('/api/policyIssue', async (req, res) => {
     convertURLToPDF(doc)
         .then((pdfBytes1) => {
 
-            convertURLToPDF(invoice_doc)
-                .then((pdfBytes2) => {
+            //convertURLToPDF(invoice_doc)
+            //    .then((pdfBytes2) => {
                     const attachments = [
                         {
                             filename: 'Policy Document.pdf',
                             content: pdfBytes1,
-                        },
+                        }/*,
                         {
                             filename: 'Invoice.pdf',
                             content: pdfBytes2,
-                        }
+                        }*/
                     ];
                     sendEmailWithAttachment(attachments, recipientEmail);
-                })
-                .catch((error) => {
-                    console.log("Error on Sending Mail", error);
-                });
+            //    })
+            //    .catch((error) => {
+            //        console.log("Error on Sending Mail", error);
+            //    });
         })
         .catch((error) => {
             console.log("Error on Sending Mail", error);
@@ -375,7 +375,7 @@ app.post('/api/endorsementIssue', async (req, res) => {
 
     const documentType = parse_json_Locator.documents[0].displayName;
 
-    const invoice_doc = parse_json_Locator.invoice.documents[0].url;
+    //const invoice_doc = parse_json_Locator.invoice.documents[0].url;
 
 
 
@@ -432,24 +432,24 @@ app.post('/api/endorsementIssue', async (req, res) => {
     convertURLToPDF(doc)
         .then((pdfBytes1) => {
 
-            convertURLToPDF(invoice_doc)
-                .then((pdfBytes2) => {
+            //convertURLToPDF(invoice_doc)
+            //    .then((pdfBytes2) => {
                     const attachments = [
                         {
                             filename: 'Endorsement.pdf',
                             content: pdfBytes1,
-                        },
+                        }/*,
                         {
                             filename: 'Invoice.pdf',
                             content: pdfBytes2,
-                        }
+                        }*/
 
                     ];
                     sendEmailWithAttachment(attachments, recipientEmail);
-                })
-                .catch((error) => {
-                    console.log("Error on Sending Mail", error);
-                });
+            //    })
+            //    .catch((error) => {
+            //        console.log("Error on Sending Mail", error);
+            //    });
         })
         .catch((error) => {
             console.log("Error on Sending Mail", error);
